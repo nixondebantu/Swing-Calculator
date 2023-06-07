@@ -17,7 +17,7 @@ public class Calculator {
 
         panel = new JPanel();
         panel.setBounds(50, 100, 310, 300);
-        panel.setLayout(new GridLayout(5, 4, 10, 10));
+        panel.setLayout(new GridLayout(4, 4, 10, 10));
         panel.setBackground(new Color(44, 51, 51));
 
         textField = new JTextField();
@@ -33,10 +33,10 @@ public class Calculator {
             numbtn[i].setBackground(new Color(14, 131, 136));
         }
 
-        fubtn[3] = new JButton("/");    //divbtn
-        fubtn[2] = new JButton("X");    //mulbtn
-        fubtn[1] = new JButton("-");    //subbtn
-        fubtn[0] = new JButton("+");    //addbtn
+        fubtn[2] = new JButton("/");    //divbtn
+        fubtn[1] = new JButton("X");    //mulbtn
+        fubtn[0] = new JButton("-");    //subbtn
+        fubtn[3] = new JButton("+");    //addbtn
         fubtn[4] = new JButton(".");    //dotbtn
         fubtn[5] = new JButton("=");    //equbtn
         fubtn[6] = new JButton("(-)");    //minbtn
@@ -49,7 +49,26 @@ public class Calculator {
             fubtn[i].setBackground(new Color(14, 131, 136));
         }
 
+        fubtn[6].setBounds(50, 430, 100, 50);
+        fubtn[7].setBounds(150, 430, 100, 50);
+        fubtn[8].setBounds(250, 430, 100, 50);
+
+        for(int i=6 ; i>=0 ; i--){
+            panel.add(numbtn[i+1]);
+            panel.add(numbtn[i+2]);
+            panel.add(numbtn[i+3]);
+            panel.add(fubtn[i/3]);
+            i-=2;
+        }
+        panel.add(fubtn[4]);
+        panel.add(numbtn[0]);
+        panel.add(fubtn[5]);
+        panel.add(fubtn[3]);
+
         frame.add(panel);
+        frame.add(fubtn[6]);
+        frame.add(fubtn[7]);
+        frame.add(fubtn[8]);
         frame.add(textField);
         frame.setVisible(true);
     }
