@@ -1,7 +1,8 @@
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 
-public class Calculator {
+public class Calculator implements ActionListener{
     JFrame frame;
     JPanel panel;
     JTextField textField;
@@ -31,6 +32,7 @@ public class Calculator {
             numbtn[i].setFont(calFont);
             numbtn[i].setFocusable(false);
             numbtn[i].setBackground(new Color(14, 131, 136));
+            numbtn[i].addActionListener(this);
         }
 
         fubtn[2] = new JButton("/");    //divbtn
@@ -71,5 +73,14 @@ public class Calculator {
         frame.add(fubtn[8]);
         frame.add(textField);
         frame.setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        for(int i=0 ; i<10 ; i++){
+            if(e.getSource() == numbtn[i]){
+                textField.setText(textField.getText().concat(String.valueOf(i)));
+            }
+        }
     }
 }
