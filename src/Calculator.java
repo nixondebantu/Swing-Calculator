@@ -9,6 +9,10 @@ public class Calculator implements ActionListener{
     Font calFont = new Font("calibri", Font.BOLD, 25);
     JButton[] numbtn = new JButton[10];
     JButton[] fubtn = new JButton[9];
+    double num1 = 0;
+    double num2 = 0;
+    double result = 0;
+    int op = -1;
 
     Calculator(){
         frame = new JFrame("Swing Calculator");
@@ -97,6 +101,26 @@ public class Calculator implements ActionListener{
             double min = Double.parseDouble(textField.getText());
             min *= (-1);
             textField.setText(String.valueOf(min));
+        }
+        else if(e.getSource() == fubtn[5]){ //equbtn
+            num2 = Double.parseDouble(textField.getText());
+
+            if(op == 0)         result = num1 - num2;
+            else if(op == 1)   result = num1 * num2;
+            else if(op == 2)    result = num1 / num2;
+            else if(op == 3)    result = num1 + num2;
+
+            textField.setText(String.valueOf(result));
+            num1 = result;
+        }
+        else{
+            for(int i=0 ; i<4; i++){
+                if(e.getSource() == fubtn[i]){
+                    op = i;
+                    num1 = Double.parseDouble(textField.getText());
+                    textField.setText("");
+                }
+            }
         }
     }
 
