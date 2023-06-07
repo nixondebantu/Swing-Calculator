@@ -86,8 +86,18 @@ public class Calculator implements ActionListener{
         if(e.getSource() == fubtn[4]){  //dotbtn
             textField.setText(textField.getText().concat("."));
         }
-        if(e.getSource() == fubtn[8]){  //clrbtn
+        else if(e.getSource() == fubtn[8]){  //clrbtn
             textField.setText("");
         }
+        else if(e.getSource() == fubtn[7]){ //delbtn
+            String string = textField.getText();
+            textField.setText(string.substring(0, string.length()-1));
+        }
+        else if(e.getSource() == fubtn[6]){ //minbtn
+            double min = Double.parseDouble(textField.getText());
+            min *= (-1);
+            textField.setText(String.valueOf(min));
+        }
     }
+
 }
