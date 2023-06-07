@@ -49,6 +49,7 @@ public class Calculator implements ActionListener{
             fubtn[i].setFont(calFont);
             fubtn[i].setFocusable(false);
             fubtn[i].setBackground(new Color(14, 131, 136));
+            fubtn[i].addActionListener(this);
         }
 
         fubtn[6].setBounds(50, 430, 100, 50);
@@ -81,6 +82,12 @@ public class Calculator implements ActionListener{
             if(e.getSource() == numbtn[i]){
                 textField.setText(textField.getText().concat(String.valueOf(i)));
             }
+        }
+        if(e.getSource() == fubtn[4]){  //dotbtn
+            textField.setText(textField.getText().concat("."));
+        }
+        if(e.getSource() == fubtn[8]){  //clrbtn
+            textField.setText("");
         }
     }
 }
