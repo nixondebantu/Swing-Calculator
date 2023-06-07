@@ -6,6 +6,7 @@ public class Calculator {
     JPanel panel;
     JTextField textField;
     Font calFont = new Font("calibri", Font.BOLD, 25);
+    JButton[] numbtn = new JButton[10];
 
     Calculator(){
         frame = new JFrame("Swing Calculator");
@@ -23,6 +24,13 @@ public class Calculator {
         textField.setEditable(false);
         textField.setFont(calFont);
         textField.setBackground(new Color(203, 228, 222));
+
+        for(int i=0 ; i<10 ; i++){
+            numbtn[i] = new JButton(String.valueOf(i));
+            numbtn[i].setFont(calFont);
+            numbtn[i].setFocusable(false);
+            numbtn[i].setBackground(new Color(14, 131, 136));
+        }
 
         frame.add(panel);
         frame.add(textField);
